@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GreyAtom Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 🌈 BACKGROUND SHAPES -->
+<div class="bg-shape shape1"></div>
+<div class="bg-shape shape2"></div>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2>🚚 GreyAtom</h2>
+    <ul>
+      <li class="nav-item active" data-section="dashboardSection">📊 Dashboard</li>
+      <li class="nav-item" data-section="exceptionsSection">📋 Exceptions</li>
+      <li class="nav-item" data-section="reportsSection">📈 Reports</li>
+    </ul>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <h1>🚚 Delivery Exception Dashboard</h1>
+
+    <!-- ================= DASHBOARD ================= -->
+    <div id="dashboardSection">
+
+      <!-- STATS -->
+      <div class="stats">
+        <div class="card">
+          <h3>Open Issues</h3>
+          <p id="openCount">0</p>
+        </div>
+
+        <div class="card">
+          <h3>Resolved Issues</h3>
+          <p id="resolvedCount">0</p>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="card">
+        <h2>Report Delivery Issue</h2>
+
+        <form id="exceptionForm">
+
+          <input type="text" id="deliveryId" placeholder="Delivery ID" required>
+
+          <input type="text" id="customerName" placeholder="Customer Name" required>
+
+          <select id="issueType" required>
+            <option value="">Select Issue Type</option>
+            <option>Address Not Found</option>
+            <option>Customer Not Available</option>
+            <option>Payment Issue</option>
+            <option>Package Damaged</option>
+          </select>
+
+          <!-- PRIORITY -->
+          <div class="radio-group">
+            <label><input type="radio" name="priority" value="Low"> 🟢 Low</label>
+            <label><input type="radio" name="priority" value="Medium"> 🟡 Medium</label>
+            <label><input type="radio" name="priority" value="High"> 🔴 High</label>
+          </div>
+
+          <textarea id="notes" placeholder="Notes (optional)"></textarea>
+
+          <button type="submit">Submit Issue</button>
+
+        </form>
+      </div>
+
+    </div>
+
+    <!-- ================= EXCEPTIONS ================= -->
+    <div id="exceptionsSection" class="card">
+
+      <h2>All Exceptions</h2>
+
+      <!-- FILTERS -->
+      <div class="filters">
+        <select id="filterType">
+          <option value="All">All Types</option>
+          <option>Address Not Found</option>
+          <option>Customer Not Available</option>
+          <option>Payment Issue</option>
+          <option>Package Damaged</option>
+        </select>
+
+        <select id="filterStatus">
+          <option value="All">All Status</option>
+          <option>Open</option>
+          <option>Resolved</option>
+        </select>
+      </div>
+
+      <!-- TABLE -->
+      <table>
+        <thead>
+          <tr>
+            <th>Delivery ID</th>
+            <th>Customer</th>
+            <th>Issue</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody id="tableBody"></tbody>
+      </table>
+
+    </div>
+
+    <!-- ================= REPORTS ================= -->
+    <div id="reportsSection" class="card">
+
+      <h2>Reports Summary</h2>
+
+      <p>📊 Total Open Issues: <strong id="reportOpen">0</strong></p>
+      <p>✅ Total Resolved Issues: <strong id="reportResolved">0</strong></p>
+
+    </div>
+
+  </main>
+</div>
+
+<!-- JS -->
+<script src="script.js" defer></script>
+
+</body>
+</html>
