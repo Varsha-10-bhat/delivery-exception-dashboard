@@ -7,7 +7,7 @@ A frontend dashboard built using HTML, CSS, and JavaScript to manage delivery is
 - View all issues in table
 - Filter by type and status
 - Resolve or delete issues
-- Dashboard stats (Open vs Resolved)
+- Dashboard status (Open vs Resolved)
 
 ## Tech Stack
 - HTML
